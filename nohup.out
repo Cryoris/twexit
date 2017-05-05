@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "./plot_timeline.py", line 39, in <module>
+    xk, yk = get_timeline_count(tweets_csv, keywords)
+  File "./plot_timeline.py", line 17, in get_timeline_count
+    l = Loader(tweets_file)
+  File "/home/jgacon/uni/brexit-project/loader/loader.py", line 12, in __init__
+    self.load_file(filename)
+  File "/home/jgacon/uni/brexit-project/loader/loader.py", line 19, in load_file
+    raise SystemError("Couldn't open file " + filename)
+SystemError: Couldn't open file /home/jgacon/uni/brexit-project/data/brexit_all.csv
