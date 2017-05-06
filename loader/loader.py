@@ -42,6 +42,14 @@ class Loader:
     def remove_deleted(self, colname="text"):
         self.data = self.data[self.data["text"] != "deleted"]
 
+    def remove_if_contains(self, keyword):
+        contains_key = lambda x: keyword in x
+        count_before = self.data["id"].count()
+        self.data = self.data[self.data["text"].apply(contains_key) == False]
+        count_after = self.data["id"].count()
+        # return number of removed elements
+        return count_before - count_after
+
     def get_tweets(self, colname="text"):
         return list(self.data[colname])
 
