@@ -1,0 +1,164 @@
+%% This is emulateapj reformatting of the AASTEX sample document
+%%
+\documentclass{emulateapj}
+
+\usepackage{cleveref}
+
+%\renewcommand{\baselinestretch}{1.3}
+
+\bibliographystyle{abbrvnat}
+\setcitestyle{super}
+
+\shorttitle{A Twitter based Brexit analysis}
+\shortauthors{J. Kunath and J. Gacon}
+
+\begin{document}
+
+\title{A Twitter based Brexit analysis}
+
+\author{J. Kunath}
+\affil{Department of Physics, ETH Zurich}
+\email{kunathj@phys.ethz.ch}
+
+\author{J. Gacon}
+\affil{Department of Mathematics, ETH Zurich}
+\email{jgacon@phys.ethz.ch}
+
+\and
+
+\author{Dr. I. Moise}
+\affil{Department of Humanities, Social and Political Sciences, ETH Zurich}
+\email{izabel.moise@gess.ethz.ch}
+
+\begin{abstract}
+  The politics in Europe recently are subject to changes that are heavily biased towards the right wing and conservatives. 
+  Scenarios which we deem unthinkable occur surprisingly often, the most prominent examples being the so-called ``Brexit'' and the Trump administration. 
+  They all share far-reaching similarities:
+  A dedicated political group pursuing a controversial goal and an initially low attention of the opposition.  
+  Voters that feel left behind and forgotten see their opportunity to have an impact. The election divides the country. 
+
+  We are interested in how the attention for such political events fluctuates over time. 
+  As a case study we chose the Brexit and as measure of attention the activity on related topics on Twitter.   
+\end{abstract}
+
+\section{Introduction}
+
+Britain's referendum about staying in the EU or leaving it (Brexit for short) has risen a lot of attention lately. 
+The negotiations for Britain's exit have begun and the first summit took place in the end of April. But at the same time the presidential elections in France are 
+provoking discussions concerning the EU and its constituents.
+This attention enables us to investigate the Twitter acticity on Brexit topics very well. 
+We were crawling data from the Twitter APIs, which give us real-time Tweet access, for several time windows between April 5th and May 10th 2017. 
+Also we had access to Twitter archives from the Computational Social Science group at ETH, which allowed us to get Tweets from February, April and May 2016.
+
+We used a set of Brexit-related keywords to filter for relevant input. Using the time-zone as location of the tweet we can restrict the search to certain regions. 
+As a tool for analysing the useful sources we used Python's Vader\cite{vader-paper, vader-code} sentiment analysis and our own sentiment analysis, based on the Brexit gold standard\cite{ssix}
+- a 2000 Tweets database whose sentiments have been assigned manually by an expert group.
+
+We will investigate the activity of Tweets in favour and against the Brexit, identify peaks and interesting behaviours and try to map those to political events. 
+This way we will see, if the interest in politics of certain groups follows an explainable behaviour.
+
+In \ref{sec:sentiment-analysis} we explain our approach sentiment analysis approach in detail. 
+We continue in \ref{sec:frequency-analysis} by looking at the frequency of keywords over time in different regions.
+Specifications about the implementations can be found in \ref{sec:implementations} and finally we present the
+results in \ref{sec:results}.
+
+\section{Sentiment analysis}\label{sec:sentiment-analysis}
+
+Jonannanananananas
+
+\section{Frequency analysis}\label{sec:frequency-analysis}
+
+To see how the attention of the Brexit evolves over time we investigated how often certain keywords appeared.
+The timestamp is available in every tweet and is easily accessable.
+For the location the tag \texttt{geo} of \texttt{place} turned out not be useful as by far most tweets have the location disabled.
+However we the \texttt{user\_time\_zone} is contained in almost all our data, which does the job in our case. 
+Timezone does not indicate the UTC$\pm$HH:MM only, but actually tells you the nearest example city of this time zone.
+A typical dataset would read:
+\newline\newline
+{\ttfamily
+  \begin{tabular}{|l|l|l|}
+    \hline
+    created\_at & geo & user\_time\_zone \\ \hline
+    2017-04-02 23:19:42 & None & None \\ \hline
+    2017-04-02 23:19:45 & None & Karachi \\ \hline
+    2017-04-02 23:19:46 & None & London \\ \hline
+    2017-04-02 23:19:52 & None & Moscow \\ \hline
+  \end{tabular}
+}
+\newline\newline
+From a testset of 1067045 tweets, 17909 (1.7\%) had a \texttt{place} tag, 631172 (59\%) a \texttt{user\_time\_zone} and 0 a geolocation.
+
+Now one simply needs to filter the tweets according to wanted timezones and keywords, group them by day and count.
+Results using the timezone filter London and multiple keywords are shown in \cref{fig:frequency-london} and the total 
+activity in \cref{fig:frequency-tot}.
+
+\newpage
+\begin{figure}
+  \plotone{img/total_ssixKeywords.png}
+  \caption{FIXME JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS
+           FIXME JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS
+           FIXME JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS}
+  \plotone{img/frequency_stacked_London.pdf}
+  \caption{We counted the appearance of certain keywords in the tweets for each day in our data.
+           Words like ``ukip'' are very present over the whole time window. We excluded the keyword ``brexit'',
+           as it is included in almost every Tweet.\label{fig:frequency-london}}
+  \plotone{img/frequency_brexit.pdf}
+  \caption{Total activity of Brexit-related tweets. As one can see almost all Tweets contain the keyword ``brexit'',
+           thus it cannot be used to classify sentiments. However it is very useful to roughly filter for Tweets about
+           the referendum.\label{fig:frequency-tot}}
+\end{figure}
+\newpage
+
+\section{Implementations}\label{sec:Implementations}
+
+\subsection{Language specifications}
+We chose Python as our working language, due to several reasons.
+
+Tweepy\cite{tweepy}, a Python library, grants easy access to the APIs. Also the sentiment analysis VADER is accessible as a Python library via github or the \texttt{nltk} module.
+Panda dataframes allow convenient manipulations of the data and Python's matplotlib can be used to visualise our results
+
+The data from the crawling has been stored in a MySQL database.
+
+\subsection{Data collection}
+
+To use get access to Twitter's APIs we to created a Twitter account and used our user's access tokens for identification.
+
+Twitter has four API classes - two of which give us the tweets, namely the REST APIs\cite{rest-apis} and the Streaming APIs\cite{streaming-apis}.
+Latter gives low latency access to the globals stream of Tweet data. It is suitable for long-term data mining, as it can simply be kept running in the background.
+The REST APIs work on a request-response basis, meaning one has to send a request for certain keywords in a certain time and Twitter responds with the data. 
+
+However for our use the REST APIs had a distinct advantage: one has access to the data of the last 7 days, and not only real-time.
+As we had to crawl our data in a relatively short time window we chose this access point over Streaming.
+We had a Python script running on our server which sends requests for our keyword set on a regular basis and saves the formatted data to rhe MySQL database.
+This scipt also took care of potential time-outs and rate limits.
+
+\section{Results and Discussion}\label{sec:results}
+
+%%
+%% Appendix
+%% 
+
+\appendix
+
+\section{Appendix material}
+
+%%
+%% Bibliography
+%%
+
+\begin{thebibliography}{9}
+  \bibitem[Vader()]{vader-paper} C.J. Hutto, Eric Gilbert (2014) VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text
+    \url{http://comp.social.gatech.edu/papers/icwsm14.vader.hutto.pdf}
+
+  \bibitem[vaderSentiment()]{vader-code} VADER Sentiment Analysis, \url{https://github.com/cjhutto/vaderSentiment}
+
+  \bibitem[SSIX GS()]{ssix} SSIX Brexit Gold Standard, \url{link}
+
+  \bibitem[Tweepy()]{tweepy} Tweepy, \url{http://www.tweepy.org/}
+
+  \bibitem[REST APIs()]{rest-apis} Twitter REST APIs,  \url{https://dev.twitter.com/rest/public/search}
+
+  \bibitem[Streaming APIs()]{streaming-apis} Twitter Streaming APIs, \url{https://dev.twitter.com/streaming/overview}
+\end{thebibliography}
+
+\end{document}
