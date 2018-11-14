@@ -8,34 +8,80 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2}Sentiment analysis}{1}{}}
 \newlabel{sec:sentiment-analysis}{{2}{1}{}{}{}}
 \newlabel{sec:sentiment-analysis@cref}{{}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Frequency analysis}{1}{}}
-\newlabel{sec:frequency-analysis}{{3}{1}{}{}{}}
-\newlabel{sec:frequency-analysis@cref}{{}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Keyword-mapping}{1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Comparison of sentiment analysers}{2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \textnormal  {Distributions of the categories for different methods. \\ Note: The percentages have been rounded, therefore the rows don't necessarily sum up to 100\%.}}}{2}{}}
+\newlabel{table:distributions}{{1}{2}{}{}{}}
+\newlabel{table:distributions@cref}{{[table][1][]1}{2}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces \textnormal  {Amount of falsely assigned Tweets for the different methods and sentiments.}}}{2}{}}
+\newlabel{table:wrongpred}{{2}{2}{}{}{}}
+\newlabel{table:wrongpred@cref}{{[table][2][]2}{2}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces \textnormal  {Amount of correctly assigned Tweets for the different methods and sentiments. The keywords method has the best mapping accuracy but works only for a subset of the training data.}}}{3}{}}
+\newlabel{table:rightpred}{{3}{3}{}{}{}}
+\newlabel{table:rightpred@cref}{{[table][3][]3}{3}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces \textnormal  {Amount of Tweets sorted by timezone for selected zones.} }}{3}{}}
+\newlabel{table:user-time-zone}{{4}{3}{}{}{}}
+\newlabel{table:user-time-zone@cref}{{[table][4][]4}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Frequency analysis}{3}{}}
+\newlabel{sec:frequency-analysis}{{3}{3}{}{}{}}
+\newlabel{sec:frequency-analysis@cref}{{}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Distribution of our set of keywords in the training set. Tweets containing a keyword with \texttt  \# are only counted for the \texttt  {\#keyword} piece of this pie chart and not again for the keyword without \texttt  \#. The distributions per sentiments can be found in the \cref  {fig:keywords}.}}{3}{}}
+\newlabel{fig:total-ssixKeywords}{{1}{3}{}{}{}}
+\newlabel{fig:total-ssixKeywords@cref}{{[figure][1][]1}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces We counted the appearances of certain keywords in the Tweets for each day in our data. Words like ``ukip'' are very present over the whole time window. We excluded the keyword ``brexit'', as it is included in almost every Tweet. See \cref  {fig:freqlondon} for a larger version of the same plot.}}{3}{}}
+\newlabel{fig:frequency-london}{{2}{3}{}{}{}}
+\newlabel{fig:frequency-london@cref}{{[figure][2][]2}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Total activity of Brexit-related Tweets. As one can see almost all Tweets contain the keyword ``brexit'', thus it cannot be used to classify sentiments. However it is very useful to roughly filter for Tweets about the referendum.}}{3}{}}
+\newlabel{fig:frequency-tot}{{3}{3}{}{}{}}
+\newlabel{fig:frequency-tot@cref}{{[figure][3][]3}{3}}
 \citation{tweepy}
 \citation{rest-apis}
 \citation{streaming-apis}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces FIXME JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS FIXME JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS FIXME JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS JONAS}}{2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces We counted the appearance of certain keywords in the tweets for each day in our data. Words like ``ukip'' are very present over the whole time window. We excluded the keyword ``brexit'', as it is included in almost every Tweet.}}{2}{}}
-\newlabel{fig:frequency-london}{{2}{2}{}{}{}}
-\newlabel{fig:frequency-london@cref}{{[figure][2][]2}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Total activity of Brexit-related tweets. As one can see almost all Tweets contain the keyword ``brexit'', thus it cannot be used to classify sentiments. However it is very useful to roughly filter for Tweets about the referendum.}}{2}{}}
-\newlabel{fig:frequency-tot}{{3}{2}{}{}{}}
-\newlabel{fig:frequency-tot@cref}{{[figure][3][]3}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Implementations}{2}{}}
-\newlabel{sec:Implementations}{{4}{2}{}{}{}}
-\newlabel{sec:Implementations@cref}{{}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Language specifications}{2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Data collection}{2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results and Discussion}{2}{}}
-\newlabel{sec:results}{{5}{2}{}{}{}}
-\newlabel{sec:results@cref}{{}{2}}
-\bibcite{vader-paper}{{1}{}{{Vader}}{{}}}
+\citation{llewllyn16}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Implementations}{4}{}}
+\newlabel{sec:implementations}{{4}{4}{}{}{}}
+\newlabel{sec:implementations@cref}{{}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Language specifications}{4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Data collection}{4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results and Discussion}{4}{}}
+\newlabel{sec:results}{{5}{4}{}{}{}}
+\newlabel{sec:results@cref}{{}{4}}
+\newlabel{bbc}{{\ensuremath  {**}}{4}{}{}{}}
+\newlabel{bbc@cref}{{[footnote][6][]\ensuremath  {**}}{4}}
+\bibcite{vader-paper}{{1}{}{{VADER}}{{}}}
 \bibcite{vader-code}{{2}{}{{vaderSentiment}}{{}}}
 \bibcite{ssix}{{3}{}{{SSIX GS}}{{}}}
 \bibcite{tweepy}{{4}{}{{Tweepy}}{{}}}
 \bibcite{rest-apis}{{5}{}{{REST APIs}}{{}}}
 \bibcite{streaming-apis}{{6}{}{{Streaming APIs}}{{}}}
+\bibcite{llewllyn16}{{7}{2016}{{Llewellyn }}{{}}}
 \bibdata{brexit-projectNotes}
 \bibstyle{abbrvnat}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix material}{3}{}}
-\newlabel{LastPage}{{}{3}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Histogram of the sentiment values assigned by our ssix analyser. The spectrum can be approximated as the sum of three Gaussian distributions. The disciminants are set to the values where the Gaussians intersect. The three functions are $G(\mu ,\sigma ,\text  {norm}) = G(-0.0131,4.47 \cdot 10^{-3}, 1.18), \ G(-6.98 \cdot 10^{-4},1.33),3.50 \cdot 10^{-3}, 1.18)$ and $G(0.0189,4.73 \cdot 10^{-3}, 0.83).$ }}{6}{}}
+\newlabel{fig:Discr-ssix}{{4}{6}{}{}{}}
+\newlabel{fig:Discr-ssix@cref}{{[figure][4][2147483647]4}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Distributions of our set of keywords in the training set Tweets with ``leave'', ``stay'' and ``other'' sentiment, respectively. Tweets containing a keyword with \texttt  \# are only counted for the \texttt  {\#keyword} piece of this pie chart and not again for the keyword without \texttt  \#. }}{6}{}}
+\newlabel{fig:category-ssixKeywords}{{5}{6}{}{}{}}
+\newlabel{fig:category-ssixKeywords@cref}{{[figure][5][2147483647]5}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The first plot shows the sentiment distributions per keyword of the entire training set. Obviously, the keys \texttt  {leaveeu}, \texttt  {\#leaveeu}, \texttt  {voteleave}, \texttt  {\#voteleave}, \texttt  {no2eu}, \texttt  {\#no2eu}, \texttt  {britainout}, \texttt  {\#britainout}, \texttt  {ukip} and \texttt  {\#ukip} can be associated with the sentiment ``leave''. After removing all Tweets containing these classifiers we are left with the distributions in the second plot. Note, that the percentages have changed significantly, as Tweets can contain more than a single keyword. E.g.: If a Tweet contains \texttt  {britainout, takecontrol} and \texttt  {strongerin} it is already classified as ``leave'', and not considered anymore. In the second run we remove Tweets with the keywords: \texttt  {euref, eureferendum} and \texttt  {takecontrol}. Using a keyword as categoriser includes using the \texttt  {\#}-version as the same categoriser. This goes on until the last plot, where no clear bias is observed. For the remaining Tweets we will use our sentiment analysis. }}{7}{}}
+\newlabel{fig:keywords}{{6}{7}{}{}{}}
+\newlabel{fig:keywords@cref}{{[figure][6][2147483647]6}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Histogram of the sentiment values assigned by VADER. There is a high peak for zero sentiment. The sentiments are almost equally distributed over the whole range. }}{8}{}}
+\newlabel{fig:vader-hist}{{7}{8}{}{}{}}
+\newlabel{fig:vader-hist@cref}{{[figure][7][2147483647]7}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The total amount of Tweets per day. Upper plot is created using our data from April to May 2017 and the ones below using the data provided by the COSS group at ETH, which was using the Streaming APIs for data mining. We see, that the Tweet count of the latter is much lower than the first, by about a factor 100. As we know that the Streaming APIs give access to ca. 1\% of the Tweets, we conclude that the REST APIs grant temporal access to the whole public data stream. }}{8}{}}
+\newlabel{fig:freqbrexit}{{8}{8}{}{}{}}
+\newlabel{fig:freqbrexit@cref}{{[figure][8][2147483647]8}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Keyword composition of the Tweets for the \texttt  {user\_time\_zone} London, for April to May 2017 (upper plot) and certain dates in February, April and May 2016 (lower plots).}}{9}{}}
+\newlabel{fig:freqlondon}{{9}{9}{}{}{}}
+\newlabel{fig:freqlondon@cref}{{[figure][9][2147483647]9}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Keyword composition of the Tweets for the time zones Dublin, Edinburgh and US for late April and beginning of May 2017.}}{9}{}}
+\newlabel{fig:freqmany}{{10}{9}{}{}{}}
+\newlabel{fig:freqmany@cref}{{[figure][10][2147483647]10}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Day-for-day comparison of the number of Tweets pro-Brexit and contra, as categorised by our own sentiment analyser. On the top we see April and May 2017 and on the bottom selected dates in 2016. }}{10}{}}
+\newlabel{fig:totcount}{{11}{10}{}{}{}}
+\newlabel{fig:totcount@cref}{{[figure][11][2147483647]11}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Relative day-for-day comparison of Tweets in favour of Brexit, against and without a strong sentiment, as categorised by our own sentiment analyser. On the top we see April and May 2017 and on the bottom selected dates in 2016.}}{11}{}}
+\newlabel{fig:relcount}{{12}{11}{}{}{}}
+\newlabel{fig:relcount@cref}{{[figure][12][2147483647]12}{11}}
+\newlabel{LastPage}{{}{11}{}{}{}}
